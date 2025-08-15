@@ -38,7 +38,7 @@
             max-width: 400px;
             margin: 0 auto;
             padding: 20px;
-            background: #f8f9fa;
+            background: #fff;
             min-height: 100vh;
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
             -webkit-font-smoothing: antialiased;
@@ -49,19 +49,20 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 40px;
-            padding: 20px 0;
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
         }
         
         .back-btn {
-            font-size: 28px;
+            font-size: 24px;
             color: #000;
             text-decoration: none;
             cursor: pointer;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1;
-            width: 32px;
-            height: 32px;
+            width: 30px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -72,42 +73,39 @@
         }
         
         .main-title {
-            font-size: 22px;
+            font-size: 20px;
             font-weight: 600;
             color: #000;
             margin: 0;
             line-height: 1.2;
-            letter-spacing: -0.01em;
         }
         
         .sub-title {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
-            margin: 4px 0 0 0;
+            margin: 2px 0 0 0;
             font-weight: 400;
-            letter-spacing: 0.01em;
         }
         
         .qr-icon {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
             color: #666;
         }
         
         .input-section {
-            background: #f5f5f5;
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 24px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
         }
         
         .input-group {
-            margin-bottom: 28px;
+            margin-bottom: 20px;
         }
         
         .input-group:last-child {
@@ -118,45 +116,41 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .label-text {
-            font-size: 16px;
-            color: #333;
+            font-size: 15px;
+            color: #000;
             font-weight: 500;
-            letter-spacing: 0.01em;
         }
         
         .balance-text {
-            font-size: 14px;
+            font-size: 13px;
             color: #999;
             font-weight: 400;
-            letter-spacing: 0.01em;
         }
         
         .input-field {
             position: relative;
             background: #fff;
             border: none;
-            border-radius: 12px;
-            padding: 20px;
+            border-radius: 10px;
+            padding: 16px;
             display: flex;
             align-items: center;
             justify-content: space-between;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
-            transition: box-shadow 0.2s ease;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         
         .input-field input {
             border: none;
             outline: none;
-            font-size: 16px;
+            font-size: 15px;
             color: #333;
             background: transparent;
             flex: 1;
             font-weight: 400;
-            letter-spacing: 0.01em;
         }
         
         .input-field input::placeholder {
@@ -165,63 +159,86 @@
         }
         
         .contact-icon {
-            width: 24px;
-            height: 24px;
-            background: #f0f0f0;
+            width: 20px;
+            height: 20px;
+            background: #007AFF;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            font-size: 16px;
-            color: #666;
+            font-size: 12px;
+            color: #fff;
             flex-shrink: 0;
         }
         
         .contact-icon::after {
             content: '';
             position: absolute;
-            top: -3px;
-            right: -3px;
-            width: 10px;
-            height: 10px;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
             background: #ff4444;
             border-radius: 50%;
-            border: 2px solid #fff;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+            border: 1px solid #fff;
         }
         
         .amount-input {
-            font-size: 32px;
+            font-size: 28px;
             font-weight: 600;
             text-align: center;
             color: #ccc;
             width: 100%;
             text-align: center;
-            letter-spacing: -0.02em;
+        }
+        
+        .amount-display {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+        }
+        
+        .amount-value {
+            font-size: 28px;
+            font-weight: 600;
+            color: #ccc;
+            flex: 1;
+            text-align: center;
+        }
+        
+        .balance-info {
+            font-size: 13px;
+            color: #999;
+            font-weight: 400;
+            flex-shrink: 0;
+            margin-left: 10px;
         }
         
         .memo-text {
-            font-size: 14px;
+            font-size: 12px;
             color: #999;
             text-align: center;
-            margin-top: 12px;
+            margin-top: 8px;
             font-weight: 400;
-            letter-spacing: 0.01em;
-            line-height: 1.3;
         }
         
         .fee-section {
-            background: #f5f5f5;
-            border-radius: 16px;
-            padding: 24px;
-            margin-bottom: 40px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
         }
         
         .fee-display {
             display: flex;
             align-items: center;
             justify-content: space-between;
+            background: #fff;
+            border-radius: 10px;
+            padding: 16px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
         
         .fee-amount {
@@ -229,39 +246,32 @@
         }
         
         .fee-usd {
-            font-size: 18px;
+            font-size: 16px;
             font-weight: 600;
             color: #000;
             margin: 0;
             line-height: 1.2;
-            letter-spacing: -0.01em;
         }
         
         .fee-trx {
-            font-size: 14px;
+            font-size: 13px;
             color: #666;
-            margin: 6px 0 0 0;
+            margin: 4px 0 0 0;
             font-weight: 400;
-            letter-spacing: 0.01em;
         }
         
         .fee-dropdown {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             background: #f0f0f0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 10px;
             color: #666;
             flex-shrink: 0;
-            transition: background-color 0.2s ease;
-        }
-        
-        .fee-dropdown:hover {
-            background: #e0e0e0;
         }
         
         .next-button {
@@ -269,14 +279,13 @@
             background: #007AFF;
             color: white;
             border: none;
-            border-radius: 25px;
-            padding: 20px;
-            font-size: 18px;
+            border-radius: 22px;
+            padding: 18px;
+            font-size: 17px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
-            letter-spacing: 0.01em;
+            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.2);
         }
         
         .next-button:disabled {
@@ -288,12 +297,10 @@
         
         .next-button:not(:disabled):hover {
             background: #0056CC;
-            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
         }
         
         .next-button:not(:disabled):active {
             transform: scale(0.98);
-            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3);
         }
         
         /* 隐藏原有的键盘界面 */
@@ -378,10 +385,12 @@
                                     <div class="input-group">
                                         <div class="input-label">
                                             <span class="label-text">数量</span>
-                                            <span class="balance-text" id="balance-display">0.000002 TRX</span>
                                         </div>
                                         <div class="input-field">
-                                            <input type="text" id="amount-input" class="amount-input" value="0" readonly>
+                                            <div class="amount-display">
+                                                <span class="amount-value" id="amount-input">0</span>
+                                                <span class="balance-info" id="balance-display">0.000002 TRX</span>
+                                            </div>
                                         </div>
                                         <div class="memo-text">备注 (需支付 1 TRX)</div>
                                     </div>
@@ -596,7 +605,7 @@ function updateAmountDisplay() {
     // 更新新界面的金额显示
     const amountInputElement = document.getElementById('amount-input');
     if (amountInputElement) {
-        amountInputElement.value = displayAmount;
+        amountInputElement.textContent = displayAmount;
     }
     
     // 更新 USD 显示
