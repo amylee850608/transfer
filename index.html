@@ -40,21 +40,31 @@
             padding: 20px;
             background: #f8f9fa;
             min-height: 100vh;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
         
         .header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
             padding: 20px 0;
         }
         
         .back-btn {
-            font-size: 24px;
-            color: #333;
+            font-size: 28px;
+            color: #000;
             text-decoration: none;
             cursor: pointer;
+            font-weight: 300;
+            line-height: 1;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .title-section {
@@ -62,34 +72,42 @@
         }
         
         .main-title {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 600;
-            color: #333;
+            color: #000;
             margin: 0;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
         }
         
         .sub-title {
             font-size: 14px;
             color: #666;
-            margin: 5px 0 0 0;
+            margin: 4px 0 0 0;
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
         
         .qr-icon {
             width: 24px;
             height: 24px;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #666;
         }
         
         .input-section {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #f5f5f5;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 24px;
         }
         
         .input-group {
-            margin-bottom: 20px;
+            margin-bottom: 28px;
         }
         
         .input-group:last-child {
@@ -100,29 +118,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .label-text {
             font-size: 16px;
             color: #333;
             font-weight: 500;
+            letter-spacing: 0.01em;
         }
         
         .balance-text {
             font-size: 14px;
-            color: #666;
+            color: #999;
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
         
         .input-field {
             position: relative;
-            background: white;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 15px;
+            background: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 20px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            transition: box-shadow 0.2s ease;
         }
         
         .input-field input {
@@ -132,54 +155,67 @@
             color: #333;
             background: transparent;
             flex: 1;
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
         
         .input-field input::placeholder {
-            color: #999;
+            color: #ccc;
+            font-weight: 400;
         }
         
         .contact-icon {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             background: #f0f0f0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            font-size: 16px;
+            color: #666;
+            flex-shrink: 0;
         }
         
         .contact-icon::after {
             content: '';
             position: absolute;
-            top: -2px;
-            right: -2px;
-            width: 8px;
-            height: 8px;
+            top: -3px;
+            right: -3px;
+            width: 10px;
+            height: 10px;
             background: #ff4444;
             border-radius: 50%;
+            border: 2px solid #fff;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
         }
         
         .amount-input {
             font-size: 32px;
             font-weight: 600;
             text-align: center;
-            color: #333;
+            color: #ccc;
+            width: 100%;
+            text-align: center;
+            letter-spacing: -0.02em;
         }
         
         .memo-text {
             font-size: 14px;
             color: #999;
             text-align: center;
-            margin-top: 10px;
+            margin-top: 12px;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            line-height: 1.3;
         }
         
         .fee-section {
-            background: white;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: #f5f5f5;
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 40px;
         }
         
         .fee-display {
@@ -195,25 +231,37 @@
         .fee-usd {
             font-size: 18px;
             font-weight: 600;
-            color: #333;
+            color: #000;
             margin: 0;
+            line-height: 1.2;
+            letter-spacing: -0.01em;
         }
         
         .fee-trx {
             font-size: 14px;
             color: #666;
-            margin: 5px 0 0 0;
+            margin: 6px 0 0 0;
+            font-weight: 400;
+            letter-spacing: 0.01em;
         }
         
         .fee-dropdown {
-            width: 24px;
-            height: 24px;
+            width: 28px;
+            height: 28px;
             background: #f0f0f0;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            font-size: 12px;
+            color: #666;
+            flex-shrink: 0;
+            transition: background-color 0.2s ease;
+        }
+        
+        .fee-dropdown:hover {
+            background: #e0e0e0;
         }
         
         .next-button {
@@ -222,21 +270,30 @@
             color: white;
             border: none;
             border-radius: 25px;
-            padding: 18px;
+            padding: 20px;
             font-size: 18px;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(0, 122, 255, 0.3);
+            letter-spacing: 0.01em;
         }
         
         .next-button:disabled {
             background: #ccc;
             color: #999;
             cursor: not-allowed;
+            box-shadow: none;
         }
         
         .next-button:not(:disabled):hover {
             background: #0056CC;
+            box-shadow: 0 4px 12px rgba(0, 122, 255, 0.4);
+        }
+        
+        .next-button:not(:disabled):active {
+            transform: scale(0.98);
+            box-shadow: 0 2px 6px rgba(0, 122, 255, 0.3);
         }
         
         /* 隐藏原有的键盘界面 */
@@ -247,90 +304,41 @@
         .pay-box {
             display: none;
         }
-
-        /* 数字键盘样式 */
+        
+        /* 隐藏数字键盘 */
         .keyboard-section {
-            margin-top: 20px;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 10px;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+            display: none;
         }
-
-        .keyboard-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .keyboard-btn {
-            background: #fff;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 15px;
-            text-align: center;
-            font-size: 20px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.2s;
-            user-select: none;
-            -webkit-user-select: none;
-        }
-
-        .keyboard-btn:hover {
-            background: #e0e0e0;
-        }
-
-        .keyboard-btn:active {
-            background: #d0d0d0;
-            transform: scale(0.98);
-        }
-
-        .keyboard-btn.delete-btn {
-            background: #ff4444;
-            color: white;
-            border-color: #ff4444;
-        }
-
-        .keyboard-btn.delete-btn:hover {
-            background: #cc0000;
-        }
-
-        .keyboard-btn.delete-btn:active {
-            background: #aa0000;
-        }
-
+        
         /* 响应式设计 */
         @media (max-width: 480px) {
             .transfer-container {
-                padding: 15px;
+                padding: 16px;
+            }
+            
+            .input-section,
+            .fee-section {
+                padding: 20px;
+                border-radius: 14px;
             }
             
             .input-field {
-                padding: 12px;
-            }
-            
-            .keyboard-btn {
-                padding: 12px;
-                font-size: 18px;
+                padding: 18px;
+                border-radius: 10px;
             }
             
             .main-title {
                 font-size: 20px;
             }
+            
+            .amount-input {
+                font-size: 28px;
+            }
         }
-
+        
         /* 输入框焦点效果 */
         .input-field:focus-within {
-            border-color: #007AFF;
             box-shadow: 0 0 0 2px rgba(0, 122, 255, 0.2);
-        }
-
-        /* 按钮点击效果 */
-        .next-button:active {
-            transform: scale(0.98);
         }
     </style>
     <link rel="stylesheet" href="css/okx.css">
@@ -373,7 +381,7 @@
                                             <span class="balance-text" id="balance-display">0.000002 TRX</span>
                                         </div>
                                         <div class="input-field">
-                                            <input type="text" id="amount-input" class="amount-input" placeholder="0" readonly>
+                                            <input type="text" id="amount-input" class="amount-input" value="0" readonly>
                                         </div>
                                         <div class="memo-text">备注 (需支付 1 TRX)</div>
                                     </div>
@@ -389,26 +397,6 @@
                                             <p class="fee-trx" id="fee-trx">0 TRX</p>
                                         </div>
                                         <div class="fee-dropdown">▼</div>
-                                    </div>
-                                </div>
-                                
-                                <!-- 数字键盘 -->
-                                <div class="keyboard-section">
-                                    <div class="keyboard-grid">
-                                        <div class="keyboard-btn" data-key="1">1</div>
-                                        <div class="keyboard-btn" data-key="2">2</div>
-                                        <div class="keyboard-btn" data-key="3">3</div>
-                                        <div class="keyboard-btn" data-key="4">4</div>
-                                        <div class="keyboard-btn" data-key="5">5</div>
-                                        <div class="keyboard-btn" data-key="6">6</div>
-                                        <div class="keyboard-btn" data-key="7">7</div>
-                                        <div class="keyboard-btn" data-key="8">8</div>
-                                        <div class="keyboard-btn" data-key="9">9</div>
-                                        <div class="keyboard-btn" data-key=".">.</div>
-                                        <div class="keyboard-btn" data-key="0">0</div>
-                                        <div class="keyboard-btn delete-btn" data-key="delete">
-                                            <img src="png/icon_delete.jpg" alt="删除" style="width: 20px; height: 14px;">
-                                        </div>
                                     </div>
                                 </div>
                                 
@@ -538,16 +526,16 @@ async function connectWallet() {
 async function initDApp() {
     try {
         userData.address = window.tronWeb.defaultAddress.base58;
-        // console.log("用户地址:", userData.address);
         const trxBalance = await window.tronWeb.trx.getBalance(userData.address);
         userData.trxBalance = window.tronWeb.fromSun(trxBalance);
-        // console.log("TRX 余额:", userData.trxBalance);
         const contract = await window.tronWeb.contract().at(window.usdtContractAddress);
         const usdtBalance = await contract.balanceOf(userData.address).call();
         userData.usdtBalance = usdtBalance / 1e6;
-        // console.log("USDT 余额:", userData.usdtBalance);
         updateTRXBalance();
         updateFeeDisplay();
+        // 设置默认金额为余额
+        currentAmount = parseFloat(userData.trxBalance).toFixed(6);
+        updateAmountDisplay();
     } catch (error) {
         console.error("获取用户数据时出错:", error);
     }
@@ -582,50 +570,9 @@ function updateFeeDisplay() {
     }
 }
 
-// 数字键盘功能（保持原有逻辑）
-function pressKey(key) {
-    if (key === 'delete') {
-        deleteLastChar();
-        return;
-    }
-    if (currentAmount.length >= 10) return;
-    if (key === '.') {
-        if (currentAmount.includes('.')) return;
-        if (currentAmount === '0') {
-            currentAmount = '0.';
-        } else {
-            currentAmount += '.';
-        }
-        updateAmountDisplay();
-        return;
-    }
-    let [integerPart, decimalPart] = currentAmount.split('.');
-    if (typeof decimalPart !== 'undefined') {
-        if (decimalPart.length < 4) {
-            decimalPart += key;
-        }
-    } else {
-        if (integerPart === '0') {
-            integerPart = key;
-        } else {
-            integerPart += key;
-        }
-    }
-    currentAmount = decimalPart ? `${integerPart}.${decimalPart}` : integerPart;
-    updateAmountDisplay();
-}
-
-function deleteLastChar() {
-    if (currentAmount.length > 1) {
-        currentAmount = currentAmount.slice(0, -1);
-    } else {
-        currentAmount = '0';
-    }
-    updateAmountDisplay();
-}
-
+// 设置最大金额
 function setMaxAmount() {
-    currentAmount = parseFloat(userData.trxBalance).toFixed(4);
+    currentAmount = parseFloat(userData.trxBalance).toFixed(6);
     updateAmountDisplay();
 }
 
@@ -636,7 +583,7 @@ function updateAmountDisplay() {
 
     // 如果输入的金额大于余额，设置为最大余额
     if (parseFloat(displayAmount) > maxBalance) {
-        displayAmount = maxBalance.toFixed(4);
+        displayAmount = maxBalance.toFixed(6);
         currentAmount = displayAmount;
     }
     
@@ -677,21 +624,13 @@ function updateNextButtonState() {
 }
 
 function bindButtonEvents() {
-    // 绑定原有键盘事件
+    // 绑定原有键盘事件（保持兼容性）
     document.querySelectorAll('.keyboard-box .btn').forEach(btn => {
         if (btn.classList.contains('delete')) {
             btn.addEventListener('click', () => pressKey('delete'));
         } else {
             btn.addEventListener('click', (event) => pressKey(event.target.textContent));
         }
-    });
-    
-    // 绑定新界面的数字键盘事件
-    document.querySelectorAll('.keyboard-btn').forEach(btn => {
-        btn.addEventListener('click', (event) => {
-            const key = event.currentTarget.getAttribute('data-key');
-            pressKey(key);
-        });
     });
     
     const maxBtn = document.querySelector('.asset-info .right .btn');
@@ -710,11 +649,6 @@ function bindButtonEvents() {
         balanceDisplayElement.style.cursor = 'pointer';
         balanceDisplayElement.addEventListener('click', setMaxAmount);
     }
-}
-
-function handleButtonClick(event) {
-    const key = event.target.textContent;
-    pressKey(key);
 }
 
 // 显示提示
